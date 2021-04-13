@@ -1,1 +1,1 @@
-# scuvo-app
+# SCUVO
