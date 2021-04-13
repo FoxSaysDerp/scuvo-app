@@ -1,0 +1,210 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<meta name="description" content="SCUVO - Diving made easy!">
+	<meta name="author" content="SCUVO Team">
+
+  <link rel="manifest" href="manifest.json">
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    
+  <title>SCUVO | Diving made easy</title>
+
+</head>
+
+<body class="grey lighten-3"">
+
+ <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container vallign-wrapper" href="#" class="brand-logo">
+        <img src="img/logo.png" class="brand-logo-custom" alt="SCUVO">
+      </a>
+      <ul class="right hide-on-med-and-down">
+          <li class="logged-in prop-hidden">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+          </li>
+          <li class="logged-in prop-hidden">
+            <a href="#" class="grey-text" id="logout">Logout</a>
+          </li>
+          <li class="logged-in prop-hidden">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Guide</a>
+          </li>
+          <li class="logged-out prop-hidden">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+          </li>
+          <li class="logged-out prop-hidden">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+          </li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+          <li class="logged-in prop-hidden">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+          </li>
+          <li class="logged-in prop-hidden">
+            <a href="#" class="grey-text" id="logout">Logout</a>
+          </li>
+          <li class="logged-in prop-hidden">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Guide</a>
+          </li>
+          <li class="logged-out prop-hidden">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+          </li>
+          <li class="logged-out prop-hidden">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+          </li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+<!-- Parallax 1 with buttons -->
+  <div id="index-banner" class="parallax-container valign-wrapper logged-out" style="display: none;">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center scuvo-color-text">Diving made easy</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">Brand new communication channel between divers is here!</h5>
+        </div>
+        <div class="row center">
+          <div class="container main">
+            <a href="#" class="btn-large btn-margin-right waves-effect wave-light scuvo-color-bg modal-trigger" data-target="modal-signup">Sign up</a>
+            <a href="#" class="btn-large waves-effect waves-light grey lighten-1 modal-trigger" data-target="modal-login">Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="img/background1.jpg" alt="Scuba divers"></div>
+  </div>
+
+  <script>
+      $(document).ready(function() {
+      $('input#signup-bio').characterCounter();
+    });
+  </script>
+
+  <!-- SIGN UP MODAL -->
+  <div id="modal-signup" class="modal">
+    <div class="modal-content">
+      <h4>Sign up</h4><br />
+      <form id="signup-form">
+        <div class="input-field">
+          <input type="email" id="signup-email" required />
+          <label for="signup-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="signup-password" required />
+          <label for="signup-password">Choose password</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="signup-bio" data-length="32" required />
+          <label for="signup-bio">About me</label>
+        </div>
+        <button class="btn scuvo-color-bg z-depth-0">Sign up</button>
+        <p class="error pink-text center-align"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL -->
+  <div id="modal-login" class="modal">
+    <div class="modal-content">
+      <h4>Login</h4><br />
+      <form id="login-form">
+        <div class="input-field">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Your password</label>
+        </div>
+        <button class="btn scuvo-color-bg z-depth-0">Login</button>
+        <p class="error pink-text center-align"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ACCOUNT MODAL -->
+  <div id="modal-account" class="modal">
+    <div class="modal-content center-align">
+      <h4>Account details</h4><br />
+      <div class="account-details"></div>
+    </div>
+  </div>
+
+  <!-- CREATE GUIDE MODAL -->
+  <div id="modal-create" class="modal">
+    <div class="modal-content">
+      <h4>Create Guide</h4><br />
+      <form id="create-form">
+        <div class="input-field">
+          <input type="text" id="title" required>
+          <label for="title">Guide Title</label>
+        </div>
+        <div class="input-field">
+          <textarea id="content" class="materialize-textarea" required></textarea>
+          <label for="content">Guide Content</label>
+        </div>
+        <button class="btn scuvo-color-bg z-depth-0">Create</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- GUIDE LIST -->
+  <div class="container" style="margin-top: 40px; margin-bottom: 40px;">
+    <ul class="collapsible z-depth-0 guides" style="border: none;">
+
+    </ul>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">Prepare for a new way of sharing solutions!</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="img/background2.jpg" alt="Scuba divers"></div>
+  </div>
+
+
+  <footer class="page-footer scuvo-color-bg">
+    <div class="container">
+      <h6 class="uppercase">Made by divers, for divers</h6>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      <a class="grey-text text-darken-2" href="#">SCUVO Team</a> &copy; 2021
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-functions.js"></script>
+  <script src="js/config.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <!-- Compiled JavaScript --> 
+  <script src="js/auth.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/adds.js"></script>
+  
+</body>
+</html>
