@@ -3,36 +3,33 @@ const guideList = document.querySelector('.guides');
 const loggedOutLinks = document.querySelectorAll('.logged-out');
 const loggedInLinks = document.querySelectorAll('.logged-in');
 const accountDetails = document.querySelector('.account-details');
-const adminItems = document.querySelectorAll('.admin');
 
 const setupUI = (user) => {
   if (user) {
     if (user.admin) {
       adminItems.forEach(item => item.style.display = 'block');
     }
-    // account info
+    // Account info
     db.collection('users').doc(user.uid).get().then(doc => {
       const html = `
-        <div>Logged in as ${user.email}</div>
-        <div>${doc.data().bio}</div>
-        <div class="pink-text">${user.admin ? 'Admin' : ''}</div>
+        <div><h6 class="uppercase">Logged in as</h6> ${user.email}</div>
+        <div><h6 class="uppercase">About me</h6> ${doc.data().bio}</div>
       `;
       accountDetails.innerHTML = html;
     });
-    // toggle user UI elements
+    // Toggle user UI elements
     loggedInLinks.forEach(item => item.style.display = 'block');
     loggedOutLinks.forEach(item => item.style.display = 'none');
   } else {
-    // clear account info
+    // Clear account info
     accountDetails.innerHTML = '';
-    // toggle user elements
-    adminItems.forEach(item => item.style.display = 'none');
+    // Toggle user elements
     loggedInLinks.forEach(item => item.style.display = 'none');
     loggedOutLinks.forEach(item => item.style.display = 'block');
   }
 };
 
-// setup guides
+// Setup guides
 const setupGuides = (data) => {
 
   if (data.length) {
@@ -55,7 +52,7 @@ const setupGuides = (data) => {
 
 };
 
-// setup materialize components
+// Setup materialize components
 document.addEventListener('DOMContentLoaded', function() {
 
   var modals = document.querySelectorAll('.modal');
