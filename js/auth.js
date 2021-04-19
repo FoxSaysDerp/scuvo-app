@@ -84,3 +84,19 @@ loginForm.addEventListener('submit', (e) => {
   });
 
 });
+
+// Login via Google
+const signInWithGoogleBtn = document.getElementById('signInWithGoogle');
+
+const signInWithGoogle = () => {
+  const googleProvider = new firebase.auth.GoogleAuthProvider();
+  auth.signInWithPopup(googleProvider)
+  .then(() => {
+    window.location.assign('./#');
+  })
+  .catch(error => {
+    console.error(error);
+  })
+};
+
+signInWithGoogleBtn.addEventListener('click', signInWithGoogle);
