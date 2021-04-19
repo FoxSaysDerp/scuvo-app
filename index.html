@@ -33,7 +33,7 @@
 
 </head>
 
-<body class="grey lighten-3">
+<body>
 
  <nav class="white" role="navigation">
     <div class="nav-wrapper container">
@@ -43,7 +43,7 @@
       <ul class="right">
           <li class="logged-in prop-hidden hide-on-med-and-down">
             <a href="#" class="grey-text modal-trigger" data-target="modal-account">
-              <i class="material-icons left">account_circle</i>Account
+              <i class="left material-icons left">account_circle</i>Account
             </a>
           </li>
           <li class="logged-in prop-hidden hide-on-med-and-down">
@@ -70,15 +70,6 @@
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
-          <li class="logged-in prop-hidden">
-            <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
-          </li>
-          <li class="logged-in prop-hidden">
-            <a href="#" class="grey-text" id="logout">Logout</a>
-          </li>
-          <li class="logged-in prop-hidden">
-            <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create guide</a>
-          </li>
           <li class="logged-out prop-hidden">
             <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
           </li>
@@ -86,9 +77,15 @@
             <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
           </li>
       </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger logged-out prop-hidden"><i class="material-icons">menu</i></a>
 
-
+      <ul id="nav-mobile" class="left hide-on-large-only">
+        <li class="logged-in prop hidden">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-account">
+              <i class="left material-icons left">account_circle</i>
+            </a>
+        </li>
+      </ul>
     </div>
   </nav>
 
@@ -113,10 +110,18 @@
   </div>
 
   <script>
-      $(document).ready(function() {
+    $(document).ready(function() {
       $('input#signup-bio').characterCounter();
+      $('.fixed-action-btn').floatingActionButton();
     });
   </script>
+
+  <!-- Floating guide button, only on mobile -->
+  <div class="fixed-action-btn hide-on-large-only logged-in prop-hidden">
+    <a href="#" class="btn-floating btn-large scuvo-color-bg modal-trigger" data-target="modal-create">
+      <i class="large material-icons">create</i>
+    </a>
+  </div>
 
   <!-- Sign up modal -->
   <div id="modal-signup" class="modal">
