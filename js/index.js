@@ -6,9 +6,6 @@ const accountDetails = document.querySelector('.account-details');
 
 const setupUI = (user) => {
   if (user) {
-    if (user.admin) {
-      adminItems.forEach(item => item.style.display = 'block');
-    }
     // Account info
     db.collection('users').doc(user.uid).get().then(doc => {
       const html = `
